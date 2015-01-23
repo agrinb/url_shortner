@@ -19,4 +19,21 @@
 	  	<%= f.submit "Submit" %>
 	  </div>
 	<% end %>
+
+	<table class="table">
+		<thead>
+			<tr class="active">
+				<th>URL</th>
+				<th>Visits</th>
+			</tr>
+		</thead>
+				<% @leaderboard.each do |arr, count| %>
+		<tbody>
+			<tr class="active">
+				<td><%= arr.last %></td>
+				<td><%= count %></td>
+			</tr>
+		<% end %>
+		</tbody>
+	</table>
 </div>

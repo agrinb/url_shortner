@@ -3,6 +3,7 @@ class UrlsController < ApplicationController
 
 	def new
 		@url = Url.new
+    @leaderboard = Visit.group('url_id', 'old_url').order('count_id desc').count('id')
 	end
 
   def index
@@ -25,7 +26,6 @@ class UrlsController < ApplicationController
         if @url.save
           redirect_to @url, notice: 'url was successfully created.' 
         else
-          puts "failed"
           flash['notice'] = 'There was a problem is creating your url:' 
           @errors = @url.errors
           render action: :new
@@ -42,6 +42,7 @@ class UrlsController < ApplicationController
     rcode = params[:code]
     dest_url = Url.find_by(code: rcode)
     unless dest_url == nil
+      visit = Visit.create(ip: request.remote_ip, url_id: dest_url.id, old_url: dest_url.old_url)
       redirect_to dest_url.old_url
     else 
       render "/public/sorry.html"
