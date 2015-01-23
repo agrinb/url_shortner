@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'urls#new'
   resources :urls, only: [:new, :show, :create]
+  get 'u/:code' => "urls#redirect_url"
+  get 'u/link_not_found' => "urls#sorry"
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -5,9 +5,11 @@ class UrlsController < ApplicationController
 	end
 
 	def create
-    @domain = "http://ss.cc/u/"
+    @domain = "http://domain.com/u/"
     @url = Url.new(old_url: url_params['old_url'])
-    @url.short_url = @domain << Url.random_code
+    code = Url.random_code
+    @url.code = code
+    @url.short_url = @domain << code
     # @url = Url.create(old_url: old_url, short_url: short)
 
 
@@ -25,6 +27,17 @@ class UrlsController < ApplicationController
   def show
     @url = Url.find(params[:id])
   end
+
+  def redirect_url
+    rcode = params[:code]
+    dest_url = Url.find_by(code: rcode)
+    unless dest_url == nil
+      redirect_to dest_url.old_url
+    else 
+      render "/public/sorry.html"
+    end
+  end
+
 
   private
   def url_params
