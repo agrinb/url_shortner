@@ -24,7 +24,7 @@ class UrlsController < ApplicationController
     respond_to do |format|
      format.html do
         if @url.save
-          redirect_to @url, notice: 'url was successfully created.' 
+          redirect_to @url, notice: 'Url was successfully created.' 
         else
           flash['notice'] = 'There was a problem is creating your url:' 
           @errors = @url.errors

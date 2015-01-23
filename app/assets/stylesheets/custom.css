@@ -86,3 +86,16 @@ input[type="submit"]:hover {
 table {
 	margin-top: 25px;
 }
+
+.hidden {
+	display: none;
+}
+
+a, a:hover {
+	color: white;
+}
+ 
+h3.ldr-brd-lnk {
+	text-align: center;
+}
+
