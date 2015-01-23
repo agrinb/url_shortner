@@ -1,5 +1,5 @@
 class UrlsController < ApplicationController
-  #respond_to :html
+
 
 	def new
 		@url = Url.new
@@ -10,11 +10,13 @@ class UrlsController < ApplicationController
   end
 
 	def create
-    @domain = "http://domain.com/u/"
+    ### this should be improved
+    domain = "http://domain.com/u/"
+    ### 
     @url = Url.new(old_url: url_params['old_url'])
     code = Url.random_code
     @url.code = code
-    @url.short_url = @domain << code
+    @url.short_url = domain << code
 
 
 
