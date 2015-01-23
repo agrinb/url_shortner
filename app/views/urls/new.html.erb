@@ -1,0 +1,13 @@
+<h1>Linkify</h1>
+
+<div id="main-input">
+	<%= form_for @url do |f| %>
+		<div class="form-label">
+	 		 <%= f.label :url, "Please enter the URL to shorten" %>
+	  </div>
+	  <%= f.text_field :old_url %><br />
+	  <div class="lnk-submit">
+	  	<%= f.submit %>
+	  </div>
+	<% end %>
+</div>
