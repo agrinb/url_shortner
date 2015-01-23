@@ -65,3 +65,20 @@ input[type="submit"]:hover {
 .lnk-submit {
 	text-align: center;
 }
+
+.errors, .flash {
+	color: #ffbf00;
+	text-align: center;
+	padding-bottom: 5px;
+}
+
+.f-url {
+	margin-top: -10px;
+	font-size: 2em;
+}
+
+.url-box {
+	margin: 0 auto;
+	background-color: #c1c1c1;
+	border: 1px solid #5f5f5f;
+}

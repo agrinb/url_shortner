@@ -1,9 +1,18 @@
 <h1>Linkify</h1>
-
+<div class="flash">
+	<%= flash['notice'] %>
+</div>
+	<% if @errors.present? %>
+		<% @errors.full_messages.each do |e| %>
+		<div class="errors">
+			<%= e %>
+		</div>
+		<% end %>
+	<% end %>
 <div id="main-input">
 	<%= form_for @url do |f| %>
 		<div class="form-label">
-	 		 <%= f.label :url, "Please enter the URL to shorten" %>
+	 		 <%= f.label :old_url, "Please enter the URL to shorten" %>
 	  </div>
 	  <%= f.text_field :old_url %><br />
 	  <div class="lnk-submit">

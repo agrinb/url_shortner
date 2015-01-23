@@ -1,8 +1,13 @@
 class UrlsController < ApplicationController
+  #respond_to :html
 
 	def new
 		@url = Url.new
 	end
+
+  def index
+    redirect_to new_url_path
+  end
 
 	def create
     @domain = "http://domain.com/u/"
@@ -10,16 +15,19 @@ class UrlsController < ApplicationController
     code = Url.random_code
     @url.code = code
     @url.short_url = @domain << code
-    # @url = Url.create(old_url: old_url, short_url: short)
+
 
 
     respond_to do |format|
-      if @url.save
-        format.html { redirect_to @url, notice: 'url was successfully created.' }
-        # format.json { render :show, status: :created, location: @url }
-      else
-        format.html { render :new, notice: 'There was a problem is creating your url' }
-        # format.json { render json: @url.errors, status: :unprocessable_entity }
+     format.html do
+        if @url.save
+          redirect_to @url, notice: 'url was successfully created.' 
+        else
+          puts "failed"
+          flash['notice'] = 'There was a problem is creating your url:' 
+          @errors = @url.errors
+          render action: :new
+        end
       end
     end
 	end
