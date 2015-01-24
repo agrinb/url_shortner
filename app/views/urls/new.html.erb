@@ -14,7 +14,7 @@
 		<div class="form-label">
 	 		 <%= f.label :old_url, "Please enter the URL to shorten" %>
 	  </div>
-	  <%= f.text_field :old_url %><br />
+	  <%= f.text_field :old_url, :required => true %><br />
 	  <div class="lnk-submit">
 	  	<%= f.submit "Submit" %>
 	  </div>

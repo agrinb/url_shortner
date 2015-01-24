@@ -6,6 +6,7 @@ class Url < ActiveRecord::Base
 	validate :validate_url
 	validates :old_url, presence: true
 	validates :short_url, presence: true
+  has_many :visits
 
 	def self.random_code
 		[*('A'..'Z')].sample(8).join
