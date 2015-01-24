@@ -44,11 +44,12 @@ cleaner and less code.
 I originally wanted to validate that 
 - the URL contains http:// or https:// (Done)
 - url field is not empty (Done, HTML5 form validation)
+- presence of destination and redirect url when creating URL object. (Done)
 - url redirect resolves (started)
-- presence of destination and redirect url when creating URL object.
+
 
 Ran into some problems with 
-Net::HTTP.new with links that were no resolving and didn't want to have code that's sprinled with rescues. So I took it out. Will experiment with it over the weekend.
+Net::HTTP.new with links that were no resolving and didn't want to have code that's sprinkled with rescues. So I took it out. Will experiment with it over the weekend.
 
 ### CSS
 Mostly wrote my own CSS, practice makes perfect. 
