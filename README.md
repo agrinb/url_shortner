@@ -25,7 +25,7 @@ My database choice was Postgres because the data is structured and perfect for a
   ```
 @leaderboard is a hash that contains the destination URL and count of visits, it's also odered in descending order. 
 
-Not having old_url in this Model would mean that this query would only return the ids of the URLs which then would translate into additional queries to get the objects and their destination urls (old_url)
+Not having 'old_url' in this Model would mean that this query would only return the ids of the URLs which then would translate into additional queries to get the objects and their destination urls (old_url). I try to think about limiting database queries. Also since DB calculations are much faster than iterating through code, I thought this was a good option.
 
 The other alternative would have been to simple add 'count' attribute to the URL model and increment it in the 'redirect_url' method which does the actual redirect. I wanted to add some complexity to this so, I chose to exlore the Visit model option, it adds flexibility.
 
@@ -44,11 +44,12 @@ cleaner and less code.
 I originally wanted to validate that 
 - the URL contains http:// or https:// (Done)
 - url field is not empty (Done, HTML5 form validation)
+- presence of destination and redirect url when creating URL object. (Done)
 - url redirect resolves (started)
-- presence of destination and redirect url when creating URL object.
+
 
 Ran into some problems with 
-Net::HTTP.new with links that were no resolving and didn't want to have code that's sprinled with rescues. So I took it out. Will experiment with it over the weekend.
+Net::HTTP.new with links that were no resolving and didn't want to have code that's sprinkled with rescues. So I took it out. Will experiment with it over the weekend.
 
 ### CSS
 Mostly wrote my own CSS, practice makes perfect. 
