@@ -9,7 +9,7 @@
 		</div>
 		<% end %>
 	<% end %>
-<div id="main-input">
+<div id="main">
 	<%= form_for @url do |f| %>
 		<div class="form-label">
 	 		 <%= f.label :old_url, "Please enter the URL to shorten" %>
@@ -19,11 +19,7 @@
 	  	<%= f.submit "Submit" %>
 	  </div>
 	<% end %>
-
-
 <h3 class="ldr-brd-lnk"><a href="#">View Leaderboard</a></h3>
-
-	
 	<table class="table hidden">
 		<thead>
 			<tr class="active">
@@ -40,5 +36,4 @@
 		<% end %>
 		</tbody>
 	</table>
-
-	</div>
+</div>
