@@ -1,16 +1,16 @@
 class UrlsController < ApplicationController
 
 
-	def new
-		@url = Url.new
+  def new
+    @url = Url.new
     @leaderboard = Visit.group('url_id', 'old_url').order('count_id desc').count('id')
-	end
+  end
 
   def index
     redirect_to new_url_path
   end
 
-	def create
+  def create
     ### this should be improved
     domain = "http://domain.com/u/"
     ### 
@@ -32,7 +32,7 @@ class UrlsController < ApplicationController
         end
       end
     end
-	end
+  end
 
   def show
     @url = Url.find(params[:id])
