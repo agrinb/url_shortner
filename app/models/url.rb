@@ -10,10 +10,10 @@ class Url < ActiveRecord::Base
 
   def self.random_code
     [*('A'..'Z')].sample(8).join
-  end 
 
+  end	
 
-   def validate_url
+  def validate_url
     begin
       uri = URI.parse(old_url)
       resp = uri.kind_of?(URI::HTTP)
@@ -24,6 +24,5 @@ class Url < ActiveRecord::Base
       errors.add(:old_url, "is not a valid url")
     end
   end
-
 end
 
