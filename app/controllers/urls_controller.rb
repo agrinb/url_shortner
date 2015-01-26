@@ -12,7 +12,6 @@ class UrlsController < ApplicationController
 
   def create
     ### this should be improved
-    binding.pry
     domain = "http://#{request.domain}/u/"
     ### 
     @url = Url.new(old_url: url_params['old_url'])
