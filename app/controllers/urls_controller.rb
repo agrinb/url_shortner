@@ -12,7 +12,7 @@ class UrlsController < ApplicationController
 
   def create
     ### this should be improved
-    domain = "http://#{request.domain}.#{request.domain}/u/"
+    domain = "http://#{request.subdomain}.#{request.domain}/u/"
     ### 
     @url = Url.new(old_url: url_params['old_url'])
     code = Url.random_code
