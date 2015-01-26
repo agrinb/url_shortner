@@ -1,39 +1,39 @@
 <h1>Linkify</h1>
 <div class="flash">
-	<%= flash['notice'] %>
+  <%= flash['notice'] %>
 </div>
-	<% if @errors.present? %>
-		<% @errors.full_messages.each do |e| %>
-		<div class="errors">
-			<%= e %>
-		</div>
-		<% end %>
-	<% end %>
+  <% if @errors.present? %>
+    <% @errors.full_messages.each do |e| %>
+    <div class="errors">
+      <%= e %>
+    </div>
+    <% end %>
+  <% end %>
 <div id="main">
-	<%= form_for @url do |f| %>
-		<div class="form-label">
-	 		 <%= f.label :old_url, "Please enter the URL to shorten" %>
-	  </div>
-	  <%= f.text_field :old_url, :required => true %><br />
-	  <div class="lnk-submit">
-	  	<%= f.submit "Submit" %>
-	  </div>
-	<% end %>
+  <%= form_for @url do |f| %>
+    <div class="form-label">
+       <%= f.label :old_url, "Please enter the URL to shorten" %>
+    </div>
+    <%= f.text_field :old_url, :required => true %><br />
+    <div class="lnk-submit">
+      <%= f.submit "Submit" %>
+    </div>
+  <% end %>
 <h3 class="ldr-brd-lnk"><a href="#">View Leaderboard</a></h3>
-	<table class="table hidden">
-		<thead>
-			<tr class="active">
-				<th>URL</th>
-				<th>Visits</th>
-			</tr>
-		</thead>
-				<% @leaderboard.each do |arr, count| %>
-		<tbody>
-			<tr class="active">
-				<td><%= arr.last %></td>
-				<td><%= count %></td>
-			</tr>
-		<% end %>
-		</tbody>
-	</table>
+  <table class="table hidden">
+    <thead>
+      <tr class="active">
+        <th>URL</th>
+        <th>Visits</th>
+      </tr>
+    </thead>
+        <% @leaderboard.each do |arr, count| %>
+    <tbody>
+      <tr class="active">
+        <td><%= arr.last %></td>
+        <td><%= count %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
 </div>
